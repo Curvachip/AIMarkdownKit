@@ -59,9 +59,20 @@ public extension AttributedString {
 }
 
 public extension Text {
-
     init(markdown content: String) {
         self.init(
+            AttributedString.aiMarkdown(content)
+        )
+    }
+}
+
+public struct MarkdownText: View {
+    private let content: String
+    public init(_ content: String) {
+        self.content = content
+    }
+    public var body: some View {
+        Text(
             AttributedString.aiMarkdown(content)
         )
     }
