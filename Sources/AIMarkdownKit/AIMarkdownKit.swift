@@ -1,5 +1,3 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
 
 import SwiftUI
 
@@ -8,19 +6,32 @@ public extension AttributedString {
 
         var result = AttributedString()
 
-        let lines = text.components(separatedBy: .newlines)
+        let cleaned = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        let lines = cleaned.components(separatedBy: .newlines)
+        
+        var hasRenderedContent = false
 
         for (index, line) in lines.enumerated() {
-
+            
             if line.hasPrefix("### ") {
+                
+                if hasRenderedContent {
+                    result += AttributedString("\n")
+                }
 
                 var header = AttributedString(String(line.dropFirst(4)))
                 header.font = .system(.title3, weight: .semibold)
 
                 result += header
                 result += AttributedString("\n\n")
+                
+                hasRenderedContent = true
 
             } else if line.hasPrefix("## ") {
+                
+                if hasRenderedContent {
+                    result += AttributedString("\n")
+                }
 
                 var header = AttributedString(String(line.dropFirst(3)))
                 header.font = .title2.bold()
@@ -29,6 +40,10 @@ public extension AttributedString {
                 result += AttributedString("\n\n")
 
             } else if line.hasPrefix("# ") {
+                
+                if hasRenderedContent {
+                    result += AttributedString("\n")
+                }
 
                 var header = AttributedString(String(line.dropFirst(2)))
                 header.font = .title.bold()
@@ -51,6 +66,11 @@ public extension AttributedString {
                 if index != lines.indices.last {
                         result += AttributedString("\n")
                 }
+                
+                if !line.trimmingCharacters(in: .whitespaces).isEmpty {
+                    hasRenderedContent = true
+                }
+                
             }
         }
 
