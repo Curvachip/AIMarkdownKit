@@ -18,7 +18,7 @@ public extension AttributedString {
                 header.font = .system(.title3, weight: .semibold)
 
                 result += header
-                result += AttributedString("\n")
+                result += AttributedString("\n\n")
 
             } else if line.hasPrefix("## ") {
 
@@ -26,7 +26,7 @@ public extension AttributedString {
                 header.font = .title2.bold()
 
                 result += header
-                result += AttributedString("\n")
+                result += AttributedString("\n\n")
 
             } else if line.hasPrefix("# ") {
 
@@ -34,7 +34,7 @@ public extension AttributedString {
                 header.font = .title.bold()
 
                 result += header
-                result += AttributedString("\n")
+                result += AttributedString("\n\n")
 
             } else {
 
