@@ -3,7 +3,7 @@
 
 import SwiftUI
 
-extension AttributedString {
+public extension AttributedString {
     static func aiMarkdown(_ text: String) -> AttributedString {
 
         var result = AttributedString()
