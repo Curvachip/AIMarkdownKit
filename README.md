@@ -37,8 +37,11 @@ AIMarkdownKit provides a hybrid approach that preserves whitespace while still r
 
 ## Requirements
 
-- iOS 17+
-- macOS 14+
+- iOS 16+
+- macOS 13+
+- tvOS 16+
+- watchOS 9+
+- visionOS 1+
 - Swift 6+
 
 ## Installation
