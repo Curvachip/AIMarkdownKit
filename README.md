@@ -55,7 +55,7 @@ In Xcode:
 Enter:
 
 ```text
-https://github.com/USERNAME/AIMarkdownKit
+https://github.com/Curvachip/AIMarkdownKit
 ```
 
 Select the latest version.
